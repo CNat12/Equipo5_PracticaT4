@@ -8,20 +8,13 @@ class NatController extends Controller
 {
     public function check(Request $request)
     {
-        // Valida que venga un texto
-        $data = $request->validate([
-            'text' => 'required|string|min:1',
+        $request->validate([
+            'text' => 'required|string',
         ]);
 
-        $text = $data['text'];
-
-        // Normaliza: solo letras/números en minúsculas
-        $clean = strtolower(preg_replace('/[^a-z0-9]/i', '', $text));
-
-        // Palíndromo si es igual al texto invertido
+        $text = $request->input('text');
+        $clean = strtolower(preg_replace('/\s+/', '', $text));
         $isPalindrome = $clean === strrev($clean);
-
-        // Conteo simple de palabras
         $wordCount = str_word_count($text);
 
         return response()->json([
