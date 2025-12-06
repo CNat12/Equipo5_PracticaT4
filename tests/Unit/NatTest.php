@@ -3,16 +3,11 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class NatTest extends TestCase
 {
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        // Desactiva la verificación CSRF
-        $this->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
-    }
+    use WithoutMiddleware; //Desactiva los middlewares 
 
     public function test_palindrome_true(): void
     {
