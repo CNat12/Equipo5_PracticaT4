@@ -6,10 +6,17 @@ use Tests\TestCase;
 
 class NatTest extends TestCase
 {
-    //verifica que la oracion si lo sea
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        // Simula un usuario
+        $this->actingAs(\App\Models\User::factory()->create());
+    }
+
     public function test_palindrome_true(): void
     {
-        //post
         $response = $this->postJson('/palindrome', [
             'text' => 'Anita lava la tina',
         ]);
@@ -21,7 +28,6 @@ class NatTest extends TestCase
                 'word_count' => 4,
             ]);
     }
-    //ahora verifica la otra palabra
 
     public function test_palindrome_false(): void
     {
@@ -33,8 +39,6 @@ class NatTest extends TestCase
         $this->assertFalse($response->json('is_palindrome'));
         $this->assertSame(2, $response->json('word_count'));
     }
-    
-    //test sea obligatorio
 
     public function test_validation_requires_text(): void
     {
