@@ -6,13 +6,12 @@ use Tests\TestCase;
 
 class NatTest extends TestCase
 {
-
     public function setUp(): void
     {
         parent::setUp();
 
-        // Simula un usuario
-        $this->actingAs(\App\Models\User::factory()->create());
+        // Desactiva la verificación CSRF
+        $this->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class);
     }
 
     public function test_palindrome_true(): void
