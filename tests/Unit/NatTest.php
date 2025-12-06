@@ -2,12 +2,12 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Tests\TestCase;
 
 class NatTest extends TestCase
 {
-    use WithoutMiddleware; //Desactiva los middlewares 
+    use WithoutMiddleware; // Desactiva los middlewares
 
     public function test_palindrome_true(): void
     {
@@ -42,4 +42,3 @@ class NatTest extends TestCase
             ->assertJsonValidationErrors('text');
     }
 }
-
