@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use App\Http\Controllers\JeffersonController;
-use Illuminate\Http\Request;
 use PHPUnit\Framework\TestCase;
+use Illuminate\Http\Request;
+use App\Http\Controllers\JeffersonController;
 
 class JeffersonTest extends TestCase
 {
