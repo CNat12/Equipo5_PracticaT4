@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class NatController extends Controller
 {
-    public function check(Request $request)
+    public function check(Request $request): JsonResponse
     {
         $request->validate([
             'text' => 'required|string',
@@ -24,4 +25,3 @@ class NatController extends Controller
         ]);
     }
 }
-
