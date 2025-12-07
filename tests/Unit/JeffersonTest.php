@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
-use Illuminate\Http\Request;
 use App\Http\Controllers\JeffersonController;
+use Illuminate\Http\Request;
+use PHPUnit\Framework\TestCase;
 
 class JeffersonTest extends TestCase
 {
@@ -26,6 +26,6 @@ class JeffersonTest extends TestCase
         $result = $controller->analyzeSecurity($request);
 
         $this->assertFalse($result['valid_level']);
-        $this->assertSame("Security level not recognized", $result["message"]);
+        $this->assertSame('Security level not recognized', $result['message']);
     }
 }
