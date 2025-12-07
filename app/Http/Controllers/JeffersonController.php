@@ -60,4 +60,3 @@ class JeffersonController extends Controller
         ];
     }
 }
-
