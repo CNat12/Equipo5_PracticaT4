@@ -1,11 +1,10 @@
 <?php
 
+use App\Http\Controllers\NatController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-use App\Http\Controllers\NatController;
 Route::post('/palindrome', [NatController::class, 'check']);
