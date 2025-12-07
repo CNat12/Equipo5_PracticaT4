@@ -2,17 +2,16 @@
 
 namespace Tests\Unit;
 
-use App\Http\Controllers\JeffersonController;
+use Tests\TestCase;
 use Illuminate\Http\Request;
-use PHPUnit\Framework\TestCase;
+use App\Http\Controllers\JeffersonController;
 
 class JeffersonTest extends TestCase
 {
-    public function test_valid_security_level_high()
+    public function test_valid_security_level_high(): void
     {
         $controller = new JeffersonController();
-        $request = new Request();
-        $request->query->set('level', 'high');
+        $request = Request::create('/dummy', 'GET', ['level' => 'high']);
 
         $result = $controller->analyzeSecurity($request);
 
@@ -21,11 +20,10 @@ class JeffersonTest extends TestCase
         $this->assertArrayHasKey('missing_headers', $result);
     }
 
-    public function test_invalid_security_level()
+    public function test_invalid_security_level(): void
     {
         $controller = new JeffersonController();
-        $request = new Request();
-        $request->query->set('level', 'gold');
+        $request = Request::create('/dummy', 'GET', ['level' => 'gold']);
 
         $result = $controller->analyzeSecurity($request);
 
