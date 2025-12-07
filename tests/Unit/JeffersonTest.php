@@ -2,15 +2,15 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use Illuminate\Http\Request;
 use App\Http\Controllers\JeffersonController;
+use Illuminate\Http\Request;
+use Tests\TestCase;
 
 class JeffersonTest extends TestCase
 {
     public function test_valid_security_level_high(): void
     {
-        $controller = new JeffersonController();
+        $controller = new JeffersonController;
         $request = Request::create('/dummy', 'GET', ['level' => 'high']);
 
         $result = $controller->analyzeSecurity($request);
@@ -22,7 +22,7 @@ class JeffersonTest extends TestCase
 
     public function test_invalid_security_level(): void
     {
-        $controller = new JeffersonController();
+        $controller = new JeffersonController;
         $request = Request::create('/dummy', 'GET', ['level' => 'gold']);
 
         $result = $controller->analyzeSecurity($request);
