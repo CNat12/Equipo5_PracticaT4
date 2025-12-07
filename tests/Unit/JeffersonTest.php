@@ -11,7 +11,9 @@ class JeffersonTest extends TestCase
     public function test_valid_security_level_high()
     {
         $controller = new JeffersonController();
-        $request = new Request(['level' => 'high']);
+        $request = new Request();
+        $request->query->set('level', 'high');
+
         $result = $controller->analyzeSecurity($request);
 
         $this->assertTrue($result['valid_level']);
@@ -22,7 +24,9 @@ class JeffersonTest extends TestCase
     public function test_invalid_security_level()
     {
         $controller = new JeffersonController();
-        $request = new Request(['level' => 'gold']);
+        $request = new Request();
+        $request->query->set('level', 'gold');
+
         $result = $controller->analyzeSecurity($request);
 
         $this->assertFalse($result['valid_level']);
