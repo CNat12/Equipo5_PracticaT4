@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class NatController extends Controller
+class NatController extends C
 {
     public function check(Request $request): JsonResponse
     {
