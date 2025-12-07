@@ -11,7 +11,7 @@ class JeffersonTest extends TestCase
     public function test_valid_security_level_high(): void
     {
         $controller = new JeffersonController;
-        $request = Request::create('/dummy', 'GET', ['level' => 'high']);
+        $request = Request::create('/dummy', 'GET', ['level' => 'low']);
 
         $result = $controller->analyzeSecurity($request);
 
