@@ -5,8 +5,7 @@ name: Build and deploy PHP app to Azure Web App - practica-app4
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main", "develop" ]
   workflow_dispatch:
 
 jobs:
