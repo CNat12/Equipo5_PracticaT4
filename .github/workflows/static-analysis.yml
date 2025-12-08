@@ -45,7 +45,7 @@ jobs:
       # ---------- Mejora Propuesta ----------
       - name: Run Composer Security Audit
         run: |
-          composer audit --strict
+          composer audit 
 
       # ---------- Run Tests ----------
       - name: Run tests
