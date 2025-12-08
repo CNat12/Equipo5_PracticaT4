@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DaianController;
 use App\Http\Controllers\NatController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,3 +9,4 @@ Route::get('/', function () {
 });
 
 Route::post('/palindrome', [NatController::class, 'check']);
+Route::get('/trig', [DaianController::class, 'compute']);
