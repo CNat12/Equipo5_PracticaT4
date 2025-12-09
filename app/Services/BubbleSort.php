@@ -20,7 +20,7 @@ class BubbleSort
             // Inner loop for comparisons and swaps
             for ($j = 0; $j < $n - $i - 1; $j++) {
                 // If the current element is greater than the next, swap them
-                if ($array[$j] < $array[$j + 1]) {
+                if ($array[$j] > $array[$j + 1]) {
                     // Swap operation
                     $temp = $array[$j];
                     $array[$j] = $array[$j + 1];
