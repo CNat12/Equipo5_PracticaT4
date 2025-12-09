@@ -25,6 +25,7 @@ class BubbleSortTest extends TestCase
     {
         $input = [5, 1, 4, 2, 8];
         $expected = [1, 2, 4, 5, 8];
+        $this->assertIsArray($input);
         $this->assertEquals($expected, $this->service->bubbleSort($input));
     }
 
